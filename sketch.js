@@ -3,7 +3,7 @@ var doorimg, doorgroup, door;
 var climber, climberimg, climbergroup;
 var invisibleblock, invisibleblockgroup;
 var ghost, ghostimg;
-
+var spookysound;
 var gamestate = "PLAY";
 
 
@@ -14,6 +14,7 @@ function preload(){
   doorimg = loadImage("door.png");
   climberimg = loadImage("climber.png");
   ghostimg = loadImage("ghost-standing.png")
+  spookysound = loadSound("spooky.wav")
 }
 
 function setup(){
@@ -31,6 +32,8 @@ function setup(){
   ghost = createSprite(200, 200, 50, 50);
   ghost.addImage("ghost", ghostimg);
   ghost.scale = 0.3;
+  
+  spookysound.loop()
   
 }
 
@@ -90,6 +93,7 @@ function draw(){
     fill("yellow")
     textSize(30);
     text("GameOver", 230, 250)
+    spookysound.stop();
     
   }
   
